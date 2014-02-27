@@ -19,3 +19,13 @@
 .editor .cursor {
   color: #01c0f0;
 }
+
+
+// Remove horrible skew from tabs.
+.tab-bar .tab,
+.tab-bar .tab .title,
+.tab-bar .tab .close-icon,
+.tab-bar .tab:before
+{
+  -webkit-transform: skewX(0);
+}
