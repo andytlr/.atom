@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.59.0'
+  'viewedVersion': '0.60.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -9,7 +9,6 @@
 'editor':
   'fontSize': 23
   'fontFamily': 'Consolas'
-  'showIndentGuide': true
   'softWrap': true
   'softWrapAtPreferredLineLength': true
 'core':
