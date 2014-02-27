@@ -10,6 +10,8 @@
   'fontSize': 23
   'fontFamily': 'Consolas'
   'showIndentGuide': true
+  'softWrap': true
+  'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
     'atom-dark-ui'
