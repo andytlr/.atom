@@ -1,0 +1,31 @@
+{
+  "name": "open-in-github-app",
+  "main": "./lib/open-in-github-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Opens the current project in GitHub.app",
+  "activationEvents": [
+    "open-in-github-app:open"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cliffrowley/atom-open-in-github-app"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Open in GitHub.app\n\nOpens the current project in [GitHub.app](http://mac.github.com) (<kbd>&#8984;&#8679;H</kbd>)\n\n![Screenshot](https://dl.dropboxusercontent.com/u/714833/Atom/packages/open-in-github-app/open-in-github-app.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/cliffrowley/atom-open-in-github-app/issues"
+  },
+  "homepage": "https://github.com/cliffrowley/atom-open-in-github-app",
+  "_id": "open-in-github-app@0.1.0",
+  "dist": {
+    "shasum": "888273316374c4c70c3988e5afe3532a7a799437"
+  },
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114212-1820-1o5vsdo/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114212-1820-1o5vsdo/package.tgz"
+}

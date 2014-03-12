@@ -9,7 +9,6 @@
 'editor':
   'fontSize': 19
   'fontFamily': 'Consolas'
-  'softWrap': true
   'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
