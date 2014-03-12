@@ -13,8 +13,8 @@
   'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
-    'unity-ui'
-    'fizzy'
+    'spacegray-dark-ui'
+    'base16-ocean-dark-spacegray'
   ]
   'ignoredNames': [
     '.git'
@@ -22,6 +22,7 @@
     '.DS_Store'
   ]
   'disabledPackages': []
+  'destroyEmptyPanes': false
 'spell-check':
   'grammars': [
     'source.gfm'
