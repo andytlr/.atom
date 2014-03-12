@@ -1,7 +1,7 @@
 {
   "name": "Zen",
   "main": "./lib/zen",
-  "version": "0.3.0",
+  "version": "0.6.0",
   "private": true,
   "description": "Distraction free writing.",
   "activationEvents": [
@@ -16,16 +16,16 @@
     "atom": ">0.50.0"
   },
   "dependencies": {},
-  "readme": "# Zen\n\nDistraction free writing for Atom.\n\nToggle with `cmd-ctrl-z`.\n\n## Before:\n\n![](http://cl.ly/U8Hk/content.png)\n\n## After:\n\n![](http://cl.ly/U8hb/content.png)\n",
+  "readme": "# Zen\n\nDistraction free writing for Atom.\n\nToggle with `cmd-ctrl-z`.\n\n## Before:\n\n![](https://f.cloud.github.com/assets/2/2290454/c7304340-a01d-11e3-8b89-018775a8612b.png)\n\n## After:\n\n![](https://f.cloud.github.com/assets/2/2290455/ce99e97e-a01d-11e3-8808-ebec40e959b4.png)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/defunkt/zen/issues"
   },
   "homepage": "https://github.com/defunkt/zen",
-  "_id": "Zen@0.3.0",
+  "_id": "Zen@0.6.0",
   "dist": {
-    "shasum": "29b2fdfeef1d710c9a16f1563e7cef33334cf704"
+    "shasum": "07643e3830877c492f88e176b6c4e69ef4105380"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114127-18092-b2qndi/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114127-18092-b2qndi/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114211-22952-16mo94f/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114211-22952-16mo94f/package.tgz"
 }

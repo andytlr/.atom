@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.65.0'
+  'viewedVersion': '0.71.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -10,9 +10,10 @@
   'fontSize': 19
   'fontFamily': 'Consolas'
   'softWrap': true
+  'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
-    'atom-light-ui'
+    'unity-ui'
     'fizzy'
   ]
   'ignoredNames': [
@@ -20,9 +21,11 @@
     '.svn'
     '.DS_Store'
   ]
+  'disabledPackages': []
 'spell-check':
   'grammars': [
     'source.gfm'
     'text.git-commit'
     'text.plain'
   ]
+'autocomplete-plus': {}
