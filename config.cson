@@ -11,6 +11,7 @@
   'fontFamily': 'Consolas'
   'softWrap': true
   'showIndentGuide': true
+  'softWrapAtPreferredLineLength': true
 'core':
   'themes': [
     'spacegray-dark-ui'
