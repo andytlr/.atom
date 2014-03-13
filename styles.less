@@ -16,16 +16,29 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.editor .cursor {
-  color: #01c0f0;
-}
+.markdown-preview {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-size: 16px;
+  padding: 10%;
 
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+  }
 
-// Remove horrible skew from tabs.
-.tab-bar .tab,
-.tab-bar .tab .title,
-.tab-bar .tab .close-icon,
-.tab-bar .tab:before
-{
-  -webkit-transform: skewX(0);
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 2em;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    margin: 2em 0 1em 0;
+    padding: 0;
+    padding-bottom: 0.5em;
+  }
+
+  h3 {
+    padding: 0;
+  }
 }
