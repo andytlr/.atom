@@ -1,0 +1,28 @@
+{
+  "name": "smarter-delete-line",
+  "main": "./lib/smarter-delete-line",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Delete to first character behavior, instead of to beginning of line",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmoses/atom-smarter-delete-line"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# smarter-delete-line package\n\nProvides a command to delete to first character, instead of beginning of line.\nIt respects indentation level.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jmoses/atom-smarter-delete-line/issues"
+  },
+  "homepage": "https://github.com/jmoses/atom-smarter-delete-line",
+  "_id": "smarter-delete-line@1.0.0",
+  "dist": {
+    "shasum": "bb17abc3cba63f4c93361d8a4ca37b5d08737453"
+  },
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114213-17959-1hns3ie/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114213-17959-1hns3ie/package.tgz"
+}

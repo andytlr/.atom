@@ -1,0 +1,31 @@
+{
+  "name": "marked",
+  "main": "./lib/marked",
+  "version": "0.1.3",
+  "private": true,
+  "description": "Opens the current file in Marked.app",
+  "activationEvents": [
+    "marked:open"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cliffrowley/atom-marked"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Open in Marked.app\n\nOpens the active file in [Marked.app](http://markedapp.com) (<kbd>&#8984;&#8679;M</kbd>)\n\n![Screenshot](https://dl.dropboxusercontent.com/u/714833/Atom/packages/marked/marked.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/cliffrowley/atom-marked/issues"
+  },
+  "homepage": "https://github.com/cliffrowley/atom-marked",
+  "_id": "marked@0.1.3",
+  "dist": {
+    "shasum": "66c7942d4246b7684c10c190cc541f993cd6294c"
+  },
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114213-17719-1yu5h61/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114213-17719-1yu5h61/package.tgz"
+}
