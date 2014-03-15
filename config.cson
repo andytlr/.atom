@@ -33,3 +33,8 @@
     'text.plain'
   ]
 'autocomplete-plus': {}
+'remember-window':
+  'x': 4
+  'y': 22
+  'width': 1436
+  'height': 878
