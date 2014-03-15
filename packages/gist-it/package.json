@@ -1,7 +1,7 @@
 {
   "name": "gist-it",
   "main": "./lib/gist",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": true,
   "description": "Quickly and easily share your code on gist.github.com",
   "activationEvents": [
@@ -24,10 +24,10 @@
     "url": "https://github.com/rpowelll/gist-it/issues"
   },
   "homepage": "https://github.com/rpowelll/gist-it",
-  "_id": "gist-it@0.3.5",
+  "_id": "gist-it@0.3.6",
   "dist": {
-    "shasum": "4a8199d28012ab4747377d9e199f5d2cb115cca8"
+    "shasum": "96d72b07142c7ebdc6e5efee91ae4875e0fe19b6"
   },
-  "_resolved": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114211-74411-bpmkxl/package.tgz",
-  "_from": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114211-74411-bpmkxl/package.tgz"
+  "_resolved": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114216-67864-lbci61/package.tgz",
+  "_from": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114216-67864-lbci61/package.tgz"
 }
