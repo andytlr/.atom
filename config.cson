@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.72.0'
+  'viewedVersion': '0.73.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -23,6 +23,7 @@
   ]
   'disabledPackages': [
     'vim-mode'
+    'color-picker'
   ]
   'destroyEmptyPanes': false
 'spell-check':
@@ -35,5 +36,5 @@
 'remember-window':
   'x': 4
   'y': 22
-  'width': 1436
-  'height': 878
+  'width': 2556
+  'height': 1418
