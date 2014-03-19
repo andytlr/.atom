@@ -1,0 +1,273 @@
+'name': 'GitHub Markdown'
+'scopeName': 'source.gfm'
+'fileTypes': [
+  'markdown'
+  'md'
+  'mdown'
+  'mkd'
+  'mkdown'
+  'ron'
+]
+
+'patterns': [
+  {
+    'match': '(?<=^|\\s)(\\*\\*[^\\*]+\\*\\*)'
+    'captures':
+      '0': 'name': 'markup.bold.gfm'
+  }
+  {
+    'match': '(?<=^|\\s)(__[^_]+__)'
+    'captures':
+      '0': 'name': 'markup.bold.gfm'
+  }
+  {
+    'match': '(?<=^|\\s)(\\*[^\\*]+\\*)'
+    'captures':
+      '0': 'name': 'markup.italic.gfm'
+  }
+  {
+    'match': '(?<=^|\\s)(_[^_]+_)'
+    'captures':
+      '0': 'name': 'markup.italic.gfm'
+  }
+  {
+    'begin': '^#{1}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-1.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'begin': '^#{2}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-2.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'begin': '^#{3}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-3.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'begin': '^#{4}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-4.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'begin': '^#{5}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-5.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'begin': '^#{6}\\s+'
+    'end': '$'
+    'name': 'markup.heading.heading-6.gfm'
+    'patterns': [
+      'include': '$self'
+    ]
+  }
+  {
+    'match': '(\\:)([^\/\\:\\s]+)(\\:)'
+    'name': 'string.emoji.gfm'
+    'captures':
+      '1': 'name': 'string.emoji.start.gfm'
+      '2': 'name': 'string.emoji.word.gfm'
+      '3': 'name': 'string.emoji.end.gfm'
+  }
+  {
+    'match': '(&)[a-zA-Z]+(;)'
+    'name': 'constant.character.entity.gfm'
+    'captures':
+      '1': 'name': 'punctuation.definition.entity.gfm'
+      '2': 'name': 'punctuation.definition.entity.gfm'
+  }
+  {
+    'match': '(&)#[0-9]+(;)'
+    'name': 'constant.character.entity.gfm'
+    'captures':
+      '1': 'name': 'punctuation.definition.entity.gfm'
+      '2': 'name': 'punctuation.definition.entity.gfm'
+  }
+  {
+    'match': '^\\s*[\\*]{3,}\\s*$'
+    'name': 'comment.hr.gfm'
+  }
+  {
+    'match': '^\\s*[-]{3,}\\s*$'
+    'name': 'comment.hr.gfm'
+  }
+  {
+    'begin': '^`{3,}\\s*coffee-?(script)?\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.coffee.gfm'
+    'patterns': ['include': 'source.coffee']
+  }
+  {
+    'begin': '^`{3,}\\s*(javascript|js)\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.js.gfm'
+    'patterns': ['include': 'source.js']
+  }
+  {
+    'begin': '^`{3,}\\s*json\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.json.gfm'
+    'patterns': ['include': 'source.json']
+  }
+  {
+    'begin': '^`{3,}\\s*css\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.css.gfm'
+    'patterns': ['include': 'source.css']
+  }
+  {
+    'begin': '^`{3,}\\s*less\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.less.gfm'
+    'patterns': ['include': 'source.css.less']
+  }
+  {
+    'begin': '^`{3,}\\s*xml\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.xml.gfm'
+    'patterns': ['include': 'text.xml']
+  }
+  {
+    'begin': '^`{3,}\\s*(ruby|rb)\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.ruby.gfm'
+    'patterns': ['include': 'source.ruby']
+  }
+  {
+    'begin': '^`{3,}\\s*java\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.java.gfm'
+    'patterns': ['include': 'source.java']
+  }
+  {
+    'begin': '^`{3,}\\s*(sh|bash)\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.shell.gfm'
+    'patterns': ['include': 'source.shell']
+  }
+  {
+    'begin': '^`{3,}\\s*py(thon)?\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.shell.gfm'
+    'patterns': ['include': 'source.shell']
+  }
+  {
+    'begin': '^`{3,}\\s*(objc|objective-c)\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.objc.gfm'
+    'patterns': ['include': 'source.objc']
+  }
+  {
+    'begin': '^`{3,}.*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.raw.gfm'
+  }
+  {
+    'match': '`[^`]+`'
+    'name': 'markup.raw.gfm'
+  }
+  {
+    'match': '\\!?\\[([^\\]]*)\\]\\(([^\\)]+)\\)'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '\\!?\\[([^\\]]*)\\]\\[([^\\]]+)\\]'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*<([^>]+)>'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*(\\S+)'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '^\\s*([\\*\\+-])[ \\t]+'
+    'captures':
+      '1': 'name': 'variable.list.gfm'
+  }
+  {
+    'match': '^\\s*(>)(.*)'
+    'captures':
+      '1': 'name': 'support.quote.gfm'
+      '2': 'name': 'comment.quote.gfm'
+  }
+]
