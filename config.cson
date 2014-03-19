@@ -26,6 +26,7 @@
     'color-picker'
   ]
   'destroyEmptyPanes': false
+  'projectHome': '/Users/andytlr/ferocia'
 'spell-check':
   'grammars': [
     'source.gfm'
@@ -34,7 +35,8 @@
   ]
 'autocomplete-plus': {}
 'remember-window':
-  'x': 4
   'y': 22
-  'width': 1436
-  'height': 878
+  'width': 2556
+  'height': 1418
+  'x': 4
+'file-types': {}
