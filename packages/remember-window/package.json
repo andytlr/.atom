@@ -1,8 +1,8 @@
 {
   "name": "remember-window",
   "main": "./lib/remember-window",
-  "version": "0.1.1",
-  "description": "Remember the window size and position",
+  "version": "0.2.0",
+  "description": "Remember the window size, position and tree view width",
   "repository": {
     "type": "git",
     "url": "https://github.com/AbeEstrada/atom-remember-window"
@@ -12,16 +12,16 @@
     "atom": ">0.50.0"
   },
   "dependencies": {},
-  "readme": "# Remember Window\n\nRemember the window size and position\n\n## Install\n\n`apm install remember-window`\n",
+  "readme": "# Remember Window\n\nRemember the window size, position and tree view width\n\n## Install\n\n`apm install remember-window`\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/AbeEstrada/atom-remember-window/issues"
   },
   "homepage": "https://github.com/AbeEstrada/atom-remember-window",
-  "_id": "remember-window@0.1.1",
+  "_id": "remember-window@0.2.0",
   "dist": {
-    "shasum": "ca3a5a3b91f3079e7db22f6a4be2970075f3c18e"
+    "shasum": "68ab766ca86036ee39da66f8bd09bea2e1005218"
   },
-  "_resolved": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114216-69138-1ismxxy/package.tgz",
-  "_from": "/var/folders/gg/1bhpwf2n21bfzhpnh2zbv3000000gn/T/d-114216-69138-1ismxxy/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114221-95516-1p2lo1u/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114221-95516-1p2lo1u/package.tgz"
 }
