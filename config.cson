@@ -23,6 +23,7 @@
   ]
   'disabledPackages': [
     'vim-mode'
+    'line-jumper'
   ]
   'destroyEmptyPanes': false
   'projectHome': '/Users/andytlr/ferocia'
@@ -34,10 +35,11 @@
   ]
 'autocomplete-plus': {}
 'remember-window':
-  'width': 1696
+  'width': 2493
   'height': 1418
   'y': 22
   'x': 4
+  'treeWidth': 200
 'file-types': {}
 'markdown-preview':
   'grammars': [
