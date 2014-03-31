@@ -19,6 +19,14 @@
     background-color: rgba(255, 255, 255, 0.025);
   }
 
+  .strikethrough.strike {
+    text-decoration:line-through;
+  }
+
+  .strikethrough.marker {
+    text-decoration: none !important;
+  }
+
   .gfm .heading-1,
   .gfm .heading-1 .italic,
   .gfm .heading-1 .bold,
@@ -26,6 +34,10 @@
   .gfm .heading-2 .italic,
   .gfm .heading-2 .bold {
     color: #d08770;
+  }
+
+  .line > .source.gfm > .variable.ordered.list.gfm ~ .line {
+    margin-left: 1em !important;
   }
 
   .gfm .heading-3,
@@ -50,7 +62,9 @@
   }
 
   .gfm .link,
-  .gfm .list {
+  .gfm .list,
+  .gfm .mention,
+  .gfm .issuetag {
     color: rgba(255, 255, 255, 0.2);
   }
 

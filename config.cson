@@ -1,16 +1,16 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.75.0'
+  'viewedVersion': '0.80.0'
 'welcome':
   'showOnStartup': false
 'metrics':
   'userId': '8830933d33c4e783209d18421e336bfbdfae096b'
 'editor':
-  'fontSize': 20
   'softWrap': true
   'softWrapAtPreferredLineLength': true
   'fontFamily': 'Consolas'
+  'fontSize': 21
 'core':
   'themes': [
     'spacegray-dark-ui'
@@ -34,8 +34,15 @@
   ]
 'autocomplete-plus': {}
 'remember-window':
-  'width': 2556
+  'width': 1696
   'height': 1418
   'y': 22
   'x': 4
 'file-types': {}
+'markdown-preview':
+  'grammars': [
+    'source.gfm'
+    'source.litcoffee'
+    'text.plain'
+    'text.plain.null-grammar'
+  ]
