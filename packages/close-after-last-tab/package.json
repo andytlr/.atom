@@ -1,0 +1,40 @@
+{
+  "name": "close-after-last-tab",
+  "main": "./lib/close-after-last-tab",
+  "version": "0.1.4",
+  "description": "Close the window after the last tab has been closed.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JRHeaton/atom-close-after-last-tab"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "John Heaton",
+    "email": "jheaton.dev@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Dan Zimmerman",
+      "url": "http://danzimm.com"
+    }
+  ],
+  "activationEvents": [
+    "pane-container:active-pane-item-changed"
+  ],
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Close After Last Tab\n\nIn Atom, when all of your tabs are closed, the window does not close. This is typical UX expected(and delivered) from *most* text editors. This resolves the issue.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/JRHeaton/atom-close-after-last-tab/issues"
+  },
+  "homepage": "https://github.com/JRHeaton/atom-close-after-last-tab",
+  "_id": "close-after-last-tab@0.1.4",
+  "dist": {
+    "shasum": "f29e6e43ca71248ac9a491d468332a5d0f254d95"
+  },
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11432-2523-mt0vhq/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11432-2523-mt0vhq/package.tgz"
+}

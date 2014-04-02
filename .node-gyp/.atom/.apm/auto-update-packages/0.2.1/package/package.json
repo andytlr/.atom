@@ -1,0 +1,22 @@
+{
+  "name": "auto-update-packages",
+  "main": "./lib/auto-update-packages",
+  "version": "0.2.1",
+  "description": "Keep your Atom packages up to date.",
+  "repository": "https://github.com/yujinakayama/atom-auto-update-packages",
+  "license": "MIT",
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "glob": "^3.2.9",
+    "fs-plus": "^2.0.4"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "coffeelint": "^1.1.0"
+  }
+}

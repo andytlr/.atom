@@ -16,3 +16,6 @@
 #   'ctrl-P': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
 #
+
+# 'body':
+#   'cmd-w': 'window:close'

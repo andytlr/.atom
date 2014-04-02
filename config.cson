@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.80.0'
+  'viewedVersion': '0.81.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -24,6 +24,7 @@
   'disabledPackages': [
     'vim-mode'
     'line-jumper'
+    'close-after-last-tab'
   ]
   'destroyEmptyPanes': false
   'projectHome': '/Users/andytlr/ferocia'
@@ -35,11 +36,10 @@
   ]
 'autocomplete-plus': {}
 'remember-window':
-  'width': 1696
-  'height': 1418
+  'width': 1436
+  'height': 878
   'y': 22
   'x': 4
-  'treeWidth': 277
 'file-types': {}
 'markdown-preview':
   'grammars': [
@@ -49,3 +49,5 @@
     'text.plain.null-grammar'
   ]
 'git-diff': {}
+'autoclose-html':
+  'closeOnEndOfOpeningTag': true
