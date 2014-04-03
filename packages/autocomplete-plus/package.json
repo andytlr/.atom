@@ -1,6 +1,6 @@
 {
   "name": "autocomplete-plus",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "main": "./lib/autocomplete",
   "description": "Display possible completions in the editor while typing",
   "repository": {
@@ -22,10 +22,10 @@
     "url": "https://github.com/saschagehlich/autocomplete-plus/issues"
   },
   "homepage": "https://github.com/saschagehlich/autocomplete-plus",
-  "_id": "autocomplete-plus@0.9.0",
+  "_id": "autocomplete-plus@0.10.0",
   "dist": {
-    "shasum": "c62689a6d5a27d9658d4c112c94dd3f6768d526e"
+    "shasum": "bb6ee5531b6bfef7154ce261eb536282c1674ef0"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114221-92465-37ofny/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114221-92465-37ofny/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11434-27804-3m27pm/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11434-27804-3m27pm/package.tgz"
 }

@@ -1,0 +1,26 @@
+{
+  "name": "language-retro",
+  "version": "0.2.0",
+  "description": "Syntax highlighting and snippets for Retro Notes.",
+  "homepage": "https://github.com/andytlr/language-retro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andytlr/language-retro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andytlr/language-retro/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "readme": "# Retro language support in Atom\n\nSyntax highlighting and snippets for Retro Notes in Atom.\n\nFormat like markdown lists but with +, -, ? and ∆:\n\n```\n+ Positive\n+ Positive\n\n- Negative\n- Negative\n\n? Question\n? Question\n\n∆ Do Differently\n∆ Do Differently\n```\n\nGet green, red, orange and blue syntax highlighting:\n\n![Retro](https://cloud.githubusercontent.com/assets/475255/2598545/0a0c9b70-baca-11e3-913f-7600bb200ea9.png)\n",
+  "readmeFilename": "README.md",
+  "_id": "language-retro@0.2.0",
+  "dist": {
+    "shasum": "df9330cbf1e09a1a95855f0302819cf9df635e54"
+  },
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11433-16672-8c667b/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11433-16672-8c667b/package.tgz"
+}
