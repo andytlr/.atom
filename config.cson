@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': '656a8697-dbe3-ab8c-9789-9cd6895bbeae'
 'release-notes':
-  'viewedVersion': '0.83.0'
+  'viewedVersion': '0.84.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -10,11 +10,11 @@
   'softWrap': true
   'fontFamily': 'Consolas'
   'softWrapAtPreferredLineLength': true
-  'fontSize': 22
+  'fontSize': 23
 'core':
   'themes': [
     'spacegray-dark-ui'
-    'fizzy'
+    'base16-ocean-dark-spacegray'
   ]
   'ignoredNames': [
     '.git'
@@ -36,11 +36,11 @@
   ]
 'autocomplete-plus': {}
 'remember-window':
-  'width': 1436
-  'height': 878
-  'treeWidth': 277
+  'width': 2556
+  'height': 1418
   'y': 22
   'x': 4
+  'treeWidth': 200
 'file-types': {}
 'markdown-preview':
   'grammars': [
