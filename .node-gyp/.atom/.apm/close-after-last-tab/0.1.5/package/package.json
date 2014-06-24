@@ -1,0 +1,30 @@
+{
+  "name": "close-after-last-tab",
+  "main": "./lib/close-after-last-tab",
+  "version": "0.1.5",
+  "description": "Close the window after the last tab has been closed.",
+  "repository": "https://github.com/JRHeaton/atom-close-after-last-tab",
+  "license": "MIT",
+  "author": {
+    "name": "John Heaton",
+    "email": "jheaton.dev@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Dan Zimmerman",
+      "url": "http://danzimm.com"
+    },
+    {
+      "name": "Jason Tokoph",
+      "url": "http://jasontokoph.com",
+      "email": "jason@tokoph.net"
+    }
+  ],
+  "activationEvents": [
+    "pane:item-removed"
+  ],
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}

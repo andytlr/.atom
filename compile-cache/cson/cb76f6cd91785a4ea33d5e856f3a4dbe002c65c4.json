@@ -1,0 +1,1 @@
+{".source.retro":{"positive":{"prefix":"p","body":"+ $1"},"negative":{"prefix":"n","body":"- $1"},"question":{"prefix":"q","body":"? $1"},"different":{"prefix":"d","body":"∆ $1"},"template":{"prefix":"template","body":"+ $1\n\n- \n\n? \n\n∆ "}}}

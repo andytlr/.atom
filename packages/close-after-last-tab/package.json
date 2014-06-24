@@ -1,7 +1,7 @@
 {
   "name": "close-after-last-tab",
   "main": "./lib/close-after-last-tab",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Close the window after the last tab has been closed.",
   "repository": {
     "type": "git",
@@ -16,10 +16,15 @@
     {
       "name": "Dan Zimmerman",
       "url": "http://danzimm.com"
+    },
+    {
+      "name": "Jason Tokoph",
+      "email": "jason@tokoph.net",
+      "url": "http://jasontokoph.com"
     }
   ],
   "activationEvents": [
-    "pane-container:active-pane-item-changed"
+    "pane:item-removed"
   ],
   "engines": {
     "atom": ">0.50.0"
@@ -31,10 +36,10 @@
     "url": "https://github.com/JRHeaton/atom-close-after-last-tab/issues"
   },
   "homepage": "https://github.com/JRHeaton/atom-close-after-last-tab",
-  "_id": "close-after-last-tab@0.1.4",
+  "_id": "close-after-last-tab@0.1.5",
   "dist": {
-    "shasum": "f29e6e43ca71248ac9a491d468332a5d0f254d95"
+    "shasum": "e948c4fd078bd238310c7aae22672e73a570a945"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11432-2523-mt0vhq/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11432-2523-mt0vhq/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114419-1286-22g9r/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114419-1286-22g9r/package.tgz"
 }

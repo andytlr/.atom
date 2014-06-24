@@ -1,0 +1,1 @@
+{"menu":[{"label":"Packages","submenu":[{"label":"Clean","submenu":[{"label":"Toggle","command":"clean:toggle"}]}]}]}
