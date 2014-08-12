@@ -1,6 +1,6 @@
 {
   "name": "language-gfm",
-  "version": "0.42.0",
+  "version": "0.46.0",
   "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
   "repository": {
     "type": "git",
@@ -14,16 +14,16 @@
     "underscore-plus": "^1.0.6",
     "season": "^1.0.2"
   },
-  "readme": "# GitHub flavored Markdown package [![Build Status](https://travis-ci.org/atom/language-gfm.png?branch=master)](https://travis-ci.org/atom/language-gfm)\n\nAdds syntax highlighting and snippets to [GitHub flavored Markdown](https://help.github.com/articles/github-flavored-markdown)\nfiles in Atom.\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
+  "readme": "# GitHub flavored Markdown package [![Build Status](https://travis-ci.org/atom/language-gfm.svg?branch=master)](https://travis-ci.org/atom/language-gfm)\n\nAdds syntax highlighting and snippets to [GitHub flavored Markdown](https://help.github.com/articles/github-flavored-markdown)\nfiles in Atom.\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/atom/language-gfm/issues"
   },
   "homepage": "https://github.com/atom/language-gfm",
-  "_id": "language-gfm@0.42.0",
+  "_id": "language-gfm@0.46.0",
   "dist": {
-    "shasum": "1153811d938a2fb16feab9f4a2485b086a861a1a"
+    "shasum": "0f68311eae104886cf76c6a92ac41cb30bc6ce46"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114526-6253-1kjsqpi/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114526-6253-1kjsqpi/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11475-53543-1tah933/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11475-53543-1tah933/package.tgz"
 }

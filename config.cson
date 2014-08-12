@@ -7,9 +7,8 @@
 'metrics':
   'userId': '8830933d33c4e783209d18421e336bfbdfae096b'
 'editor':
+  'fontFamily': 'Fira Mono'
   'softWrap': true
-  'fontFamily': 'Consolas'
-  'softWrapAtPreferredLineLength': true
   'fontSize': 20
 'core':
   'themes': [
@@ -19,8 +18,11 @@
   'disabledPackages': [
     'vim-mode'
     'line-jumper'
-    'close-after-last-tab'
     'markdown-format'
+    'close-after-last-tab'
+    'emmet'
+    'metrics'
+    'styleguide'
   ]
   'destroyEmptyPanes': false
   'projectHome': '/Users/andytlr/ferocia'
@@ -36,7 +38,7 @@
 'remember-window':
   'x': 4
   'y': 22
-  'width': 1757
+  'width': 2556
   'height': 1418
   'treeWidth': 200
 'file-types': {}
@@ -45,3 +47,7 @@
 'autoclose-html':
   'closeOnEndOfOpeningTag': true
   'forceInline': 'title, h1, h2, h3, h4, h5, h6, p'
+'find-and-replace':
+  'openProjectFindResultsInRightPane': true
+'tree-view':
+  'hideVcsIgnoredFiles': true
