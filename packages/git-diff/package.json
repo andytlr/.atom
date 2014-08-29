@@ -1,6 +1,6 @@
 {
   "name": "git-diff",
-  "version": "0.37.0",
+  "version": "0.39.0",
   "main": "./lib/main",
   "description": "Marks lines in the editor gutter that have been added, edited, or deleted since the last commit.",
   "repository": {
@@ -22,10 +22,10 @@
     "url": "https://github.com/atom/git-diff/issues"
   },
   "homepage": "https://github.com/atom/git-diff",
-  "_id": "git-diff@0.37.0",
+  "_id": "git-diff@0.39.0",
   "dist": {
-    "shasum": "b7f19e7dc9f94ed1bfde30141eb83fa48bdf02ec"
+    "shasum": "719ed089fe595e7e1b60bbf92cb83bdfc0bfc239"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114621-5056-1gbtjeu/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114621-5056-1gbtjeu/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114726-39193-1p5kuu7/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114726-39193-1p5kuu7/package.tgz"
 }

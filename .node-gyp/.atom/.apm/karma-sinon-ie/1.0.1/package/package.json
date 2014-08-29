@@ -1,0 +1,45 @@
+{
+  "name": "karma-sinon-ie",
+  "description": "Sinon for Karma (including IE compatiblity files)",
+  "keywords": [
+    "karma",
+    "karma-plugin",
+    "sinon",
+    "sinon-ie",
+    "mock"
+  ],
+  "version": "1.0.1",
+  "main": "./index.js",
+  "author": {
+    "name": "Levi Buzolic",
+    "email": "levibuzolic@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Janusz Jablonski",
+      "email": "janusz.jablonski+karma-sinon@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/levibuzolic/karma-sinon-ie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/levibuzolic/karma-sinon-ie/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/levibuzolic/karma-sinon-ie/master/LICENSE"
+    }
+  ],
+  "peerDependencies": {
+    "karma": ">=0.10",
+    "sinon": "*"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "_id": "karma-sinon-ie@1.0.1",
+  "_from": "karma-sinon-ie@*"
+}

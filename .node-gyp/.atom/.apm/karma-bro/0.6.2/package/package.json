@@ -1,0 +1,43 @@
+{
+  "name": "karma-bro",
+  "description": "A fast browserify integration for Karma that handles large projects with ease",
+  "keywords": [
+    "karma-plugin",
+    "browserify-tool",
+    "browserify"
+  ],
+  "version": "0.6.2",
+  "scripts": {
+    "test": "grunt test",
+    "travis": "grunt travis --verbose"
+  },
+  "authors": [
+    "Nico Rehwaldt <git_nikku@nixis.de>"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Nikku/karma-bro.git"
+  },
+  "bugs": "https://github.com/Nikku/karma-bro/issues",
+  "dependencies": {
+    "convert-source-map": "~0.3.3",
+    "lodash": "~2.4.1",
+    "watchify": "^0.10.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jasmine-node": "~0.2.1",
+    "grunt-release": "~0.7.0",
+    "load-grunt-tasks": "~0.4.0",
+    "karma": ">=0.10",
+    "watchify": "^0.10.2",
+    "brfs": "^1.1.1",
+    "tsify": "^0.1.4"
+  },
+  "peerDependencies": {
+    "karma": ">=0.10"
+  }
+}

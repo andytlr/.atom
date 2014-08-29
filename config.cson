@@ -7,8 +7,8 @@
 'metrics':
   'userId': '8830933d33c4e783209d18421e336bfbdfae096b'
 'editor':
-  'fontFamily': 'Fira Mono'
   'softWrap': true
+  'fontFamily': 'Fira Mono'
   'fontSize': 20
 'core':
   'themes': [
@@ -20,7 +20,6 @@
     'line-jumper'
     'markdown-format'
     'close-after-last-tab'
-    'emmet'
     'metrics'
     'styleguide'
   ]
@@ -40,7 +39,7 @@
   'y': 22
   'width': 2556
   'height': 1418
-  'treeWidth': 200
+  'treeWidth': 0
 'file-types': {}
 'markdown-preview': {}
 'git-diff': {}

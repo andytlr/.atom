@@ -1,6 +1,6 @@
 {
   "name": "language-gfm",
-  "version": "0.46.0",
+  "version": "0.48.0",
   "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
   "repository": {
     "type": "git",
@@ -20,10 +20,10 @@
     "url": "https://github.com/atom/language-gfm/issues"
   },
   "homepage": "https://github.com/atom/language-gfm",
-  "_id": "language-gfm@0.46.0",
+  "_id": "language-gfm@0.48.0",
   "dist": {
-    "shasum": "0f68311eae104886cf76c6a92ac41cb30bc6ce46"
+    "shasum": "b9eb9260bc14f20dee915ea5bc2b5534793074db"
   },
-  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11475-53543-1tah933/package.tgz",
-  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-11475-53543-1tah933/package.tgz"
+  "_resolved": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114719-71866-5metmp/package.tgz",
+  "_from": "/var/folders/3f/r6pyr17s2d77x5y6nnw5xdhw0000gn/T/d-114719-71866-5metmp/package.tgz"
 }

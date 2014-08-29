@@ -1,0 +1,49 @@
+{
+  "name": "coffee-react",
+  "description": "Coffeescript compiler wrapper adding coffee-react-transform CJSX support",
+  "keywords": [
+    "coffeescript",
+    "react",
+    "jsx",
+    "cjsx",
+    "coffee-react"
+  ],
+  "author": "James Friend",
+  "version": "0.5.0",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/jsdf/coffee-react/master/LICENSE"
+    }
+  ],
+  "files": [
+    "register.js",
+    "bin/",
+    "lib/"
+  ],
+  "main": "./lib/coffee-react-script",
+  "bin": {
+    "cjsx": "./bin/cjsx",
+    "csx-coffee": "./bin/csx-coffee"
+  },
+  "scripts": {
+    "prepublish": "cake build",
+    "test": "tap test/*.coffee"
+  },
+  "homepage": "https://github.com/jsdf/coffee-react",
+  "bugs": "https://github.com/jsdf/coffee-react/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jsdf/coffee-react.git"
+  },
+  "dependencies": {
+    "mkdirp": "~0.3.5",
+    "coffee-script": "^1.7.1",
+    "coffee-react-transform": "^0.5.0"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.4.5",
+    "tap": "^0.4.9",
+    "object.assign": "^0.5.0"
+  }
+}
