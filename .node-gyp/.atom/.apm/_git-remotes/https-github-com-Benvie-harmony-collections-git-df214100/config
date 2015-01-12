@@ -3,7 +3,7 @@
 	filemode = true
 	bare = true
 	ignorecase = true
-	precomposeunicode = false
+	precomposeunicode = true
 [remote "origin"]
 	url = https://github.com/Benvie/harmony-collections.git
 	fetch = +refs/*:refs/*

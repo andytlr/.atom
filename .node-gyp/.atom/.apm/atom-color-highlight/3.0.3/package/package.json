@@ -1,0 +1,23 @@
+{
+  "name": "atom-color-highlight",
+  "main": "./lib/atom-color-highlight",
+  "version": "3.0.3",
+  "private": true,
+  "description": "Highlights color in files",
+  "repository": "https://github.com/abe33/atom-color-highlight",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.136.0"
+  },
+  "devDependencies": {
+    "qq": "*"
+  },
+  "dependencies": {
+    "q": "1.x",
+    "underscore-plus": "1.x",
+    "pigments": ">= 3.0.4",
+    "mixto": "1.x",
+    "event-kit": "0.7.x",
+    "grim": "^1"
+  }
+}

@@ -1,1 +1,0 @@
-{"digest":"fc7446744fb6f4ecb32d31663ba467fb529afd07","css":".clean .editor:not(.mini) {\n  padding: 5% 10%;\n}\n.clean .gutter,\n.clean .status-bar,\n.clean .tab-bar,\n.clean .panel-left {\n  display: none;\n}\n","imports":[],"version":1}

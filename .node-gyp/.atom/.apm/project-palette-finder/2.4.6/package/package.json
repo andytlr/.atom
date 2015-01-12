@@ -1,0 +1,28 @@
+{
+  "name": "project-palette-finder",
+  "main": "./lib/project-palette-finder",
+  "version": "2.4.6",
+  "description": "Finds and archive colors defined in a project's less/sass/stylus files",
+  "repository": "https://github.com/abe33/atom-project-palette-finder",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.136.0"
+  },
+  "dependencies": {
+    "property-accessors": "1.x",
+    "underscore-plus": "1.x",
+    "emissary": "1.x",
+    "event-kit": "^0",
+    "grim": "^0",
+    "mixto": "1.x",
+    "prolix": "1.x",
+    "pigments": ">= 3.0.4",
+    "fs-plus": "2.x",
+    "fuzzaldrin": "2.x",
+    "atom-space-pen-views": ">= 0.20.0"
+  },
+  "devDependencies": {
+    "wrench": "1.5.x",
+    "temp": "~0.6.0"
+  }
+}

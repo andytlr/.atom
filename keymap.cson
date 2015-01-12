@@ -19,3 +19,6 @@
 
 # 'body':
 #   'cmd-w': 'window:close'
+
+'.platform-darwin .editor:not(.mini)':
+  'cmd-h': 'unset!'

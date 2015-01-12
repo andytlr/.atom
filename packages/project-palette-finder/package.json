@@ -1,7 +1,7 @@
 {
   "name": "project-palette-finder",
   "main": "./lib/project-palette-finder",
-  "version": "1.0.2",
+  "version": "2.4.7",
   "description": "Finds and archive colors defined in a project's less/sass/stylus files",
   "repository": {
     "type": "git",
@@ -9,30 +9,453 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=0.136.0"
   },
   "dependencies": {
     "property-accessors": "1.x",
     "underscore-plus": "1.x",
     "emissary": "1.x",
+    "event-kit": "^0",
+    "grim": "^0",
     "mixto": "1.x",
     "prolix": "1.x",
-    "pigments": "2.x",
-    "pathwatcher": "2.x"
+    "pigments": ">= 3.0.4",
+    "fs-plus": "2.x",
+    "fuzzaldrin": "2.x",
+    "atom-space-pen-views": ">= 0.20.0"
   },
   "devDependencies": {
     "wrench": "1.5.x",
     "temp": "~0.6.0"
   },
-  "readme": "# project-palette-finder package\n\n[![Build Status](https://travis-ci.org/abe33/atom-project-palette-finder.svg)](https://travis-ci.org/abe33/atom-project-palette-finder)\n\nFinds and exposes colors defined in a project's Less, Sass or Stylus files.\n\n![Palette View](https://raw.github.com/abe33/atom-project-palette-finder/master/screenshot.gif)\n\nIn itself this packages only offer the to following commands:\n\n * `palette:refresh` - It just scans the project directory for Less, Sass (scss & sass) and Stylus files and search for variables containing colors. It do so at startup and everytime you trigger the `palette:refresh` command.\n * `palette:view` - It scans the project and display a view in the active pane that lists all the colors defined in the palette, with source and path to the definition.\n\nTheses colors are then stored in a `Palette` object that is exposed by the package.\nAfter a project scan the colors can be retrieved with their name (the name of variable that hold them).\n\n### API\n\nTo access the package you can use the following snippets:\n\n```coffee\nProjectPaletteFinder =\nrequire atom.packages.activePackages['project-palette-finder'].path\n\nProjectPaletteFinder =\nrequire atom.packages.getLoadedPackage('project-palette-finder').path\n```\n\n#### Retrieving The Palette\n\nTo access the project palette use:\n\n```coffee\npalette = ProjectPaletteFinder.palette\n```\n\nIt references a `Palette` instance containing as many `PaletteItem` as variables holding colors found in the project files.\n\n#### Retrieving Palette Items\n\nYou can retrieve items using the following methods:\n\n```coffee\npalette.getItemByName('@less_variable_name') # :PaletteItem\npalette.getItemsForPath('/path/to/file.sass') # :Array<PaletteItem>\npalette.getItemsForPathInRange('/path/to/file.styl', [[startRow, startCol], [endRow, endCol]]) # :Array<PaletteItem>\n```\n\n#### Palette Items\n\nA `PaletteItem` instance has the following properties:\n\n * `name` - The name of the variable holding the color\n * `filePath` - The path to the file that defines that color\n * `row` - The row at which the color is defined\n * `lineRange` - An array containing the start and end index of the color definition\n * `colorString` - The color string that was found during the project scan\n * `color` - The `Color` object representing this color.\n\nAnd the following method:\n\n * `getRange()` - Returns an Array representing the color string range as a valid Atom range in the form `[[startRow, startCol], [endRow, endCol]]`\n\n#### Color\n\nThe `Color` class is provided by the [pigments module](https://github.com/abe33/pigments) and offers conversions from many color spaces such RGB, HSL or HSV.\n\nThe `Color` class registers expressions to match and parse colors in strings, allowing to create a color with any valid strings such as:\n\n```coffee\n# All this colors are equal\nnew Color('red')\nnew Color('#f00')\nnew Color('#ff0000')\nnew Color('rgba(255,0,0,1)')\nnew Color('saturate(desaturate(rgba(255,0,0,1), 50%), 50%)')\nnew Color('vec4(1,0,0,1)')\nnew Color('0xffff0000')\n```\n\nBy default, the class offer support for every CSS color notations, Less, Sass, and Stylus color functions, GLSL `vec4` type and hexadecimal integer notation.\n\nThe project palette finder will also creates its own expression using the variables names, meaning that if a Sass file defines the following variable:\n\n```sass\n$color-red: red\n```\n\nCreating a color with `new Color('$color-red')` will produces the same color as `new Color('red')`.\n\nIt'll also enable to parse color operations that uses a color variable. For instance, the two following colors will be equal:\n\n```coffee\nnew Color('darken($color-red, 20%)')\nnew Color('darken(red, 20%)')\n```\n\n#### Accessing The Color Class\n\nThe class can be retrieved directly from the palette using:\n\n```coffee\nColor = palette.Color\n```\n\n#### Real World Example\n\nThe [atom-color-highlight package](https://atom.io/packages/atom-color-highlight) will make uses of the palette colors if the package is installed, allowing to highlights all the places a variable holding a color is used in a file.\n",
+  "readme": "# project-palette-finder package\n\n[![Build Status](https://travis-ci.org/abe33/atom-project-palette-finder.svg)](https://travis-ci.org/abe33/atom-project-palette-finder)\n\nFinds and exposes colors defined in a project's CSS, Less, Sass or Stylus files.\n\nThis package provides the following commands:\n\n * `palette:refresh` - Scans the project directory for Less, Sass (scss & sass) and Stylus files and search for variables containing colors. It do so at startup and everytime you trigger the `palette:refresh` command.\n * `palette:view` - Scans the project and display a view in the active pane that lists all the colors defined in the palette, with source and path to the definition.\n    <br> ![Palette View](https://raw.github.com/abe33/atom-project-palette-finder/master/screenshot.gif)\n * `palette:find-all-colors` - Scans the project for all colors in CSS, Less, Sass and Stylus files.\n    <br>![Palette Search](https://raw.github.com/abe33/atom-project-palette-finder/master/search.gif)\n\nIn that context the project's *palette* contains all the variables in the project that contains a color. And not all the color references in the project.\nTheses colors are then stored in a `Palette` object that is exposed by the package and can be used in several context (autocompletion, colors preview). After a project scan the colors can be retrieved with their name (the name of variable that hold them).\n\n### autocomplete-plus Binding\n\nIf the [autocomplete-plus](https://atom.io/packages/autocomplete-plus) package is installed, this package will automatically register a provider to preview and complete colors name as you type:\n\n![Palette View](https://raw.github.com/abe33/atom-project-palette-finder/master/autocomplete.gif)\n\n### API\n\nTo access the package you can use the following snippets:\n\n```coffee\nProjectPaletteFinder =\nrequire atom.packages.activePackages['project-palette-finder'].path\n\nProjectPaletteFinder =\nrequire atom.packages.getLoadedPackage('project-palette-finder').path\n```\n\n#### Retrieving The Palette\n\nTo access the project palette use:\n\n```coffee\npalette = ProjectPaletteFinder.palette\n```\n\nIt references a `Palette` instance containing as many `PaletteItem` as variables holding colors found in the project files.\n\n#### Retrieving Palette Items\n\nYou can retrieve items using the following methods:\n\n```coffee\npalette.getItemByName('@less_variable_name') # :PaletteItem\npalette.getItemsForPath('/path/to/file.sass') # :Array<PaletteItem>\npalette.getItemsForPathInRange('/path/to/file.styl', [[startRow, startCol], [endRow, endCol]]) # :Array<PaletteItem>\n```\n\n#### Palette Items\n\nA `PaletteItem` instance has the following properties:\n\n * `name` - The name of the variable holding the color\n * `filePath` - The path to the file that defines that color\n * `row` - The row at which the color is defined\n * `lineRange` - An array containing the start and end index of the color definition\n * `colorString` - The color string that was found during the project scan\n * `color` - The `Color` object representing this color.\n\nAnd the following method:\n\n * `getRange()` - Returns an Array representing the color string range as a valid Atom range in the form `[[startRow, startCol], [endRow, endCol]]`\n\n#### Color\n\nThe `Color` class is provided by the [pigments module](https://github.com/abe33/pigments) and offers conversions from many color spaces such RGB, HSL or HSV.\n\nThe `Color` class registers expressions to match and parse colors in strings, allowing to create a color with any valid strings such as:\n\n```coffee\n# All this colors are equal\nnew Color('red')\nnew Color('#f00')\nnew Color('#ff0000')\nnew Color('rgba(255,0,0,1)')\nnew Color('saturate(desaturate(rgba(255,0,0,1), 50%), 50%)')\nnew Color('vec4(1,0,0,1)')\nnew Color('0xffff0000')\n```\n\nBy default, the class offer support for every CSS color notations, Less, Sass, and Stylus color functions, GLSL `vec4` type and hexadecimal integer notation.\n\nThe project palette finder will also creates its own expression using the variables names, meaning that if a Sass file defines the following variable:\n\n```sass\n$color-red: red\n```\n\nCreating a color with `new Color('$color-red')` will produces the same color as `new Color('red')`.\n\nIt'll also enable to parse color operations that uses a color variable. For instance, the two following colors will be equal:\n\n```coffee\nnew Color('darken($color-red, 20%)')\nnew Color('darken(red, 20%)')\n```\n\n#### Accessing The Color Class\n\nThe class can be retrieved directly from the palette using:\n\n```coffee\nColor = palette.Color\n```\n\n#### Real World Example\n\nThe [atom-color-highlight package](https://atom.io/packages/atom-color-highlight) will make uses of the palette colors if the package is installed, allowing to highlights all the places a variable holding a color is used in a file.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/abe33/atom-project-palette-finder/issues"
   },
   "homepage": "https://github.com/abe33/atom-project-palette-finder",
-  "_id": "project-palette-finder@1.0.2",
+  "_id": "project-palette-finder@2.4.7",
   "dist": {
-    "shasum": "d42de5cf3352b0838c67c0558e5d735300787802"
+    "shasum": "b37af93e0259c01dd53487a34d31f947c0c8a5fd"
   },
-  "_from": "/Users/andytlr/.atom/.node-gyp/.atom/.apm/project-palette-finder/1.0.2/package.tgz"
+  "_resolved": "/private/var/folders/kq/8094fww16vz5r0qbs3n6_84m_x014j/T/d-1141130-55648-1mpsecu/package.tgz",
+  "_from": "/private/var/folders/kq/8094fww16vz5r0qbs3n6_84m_x014j/T/d-1141130-55648-1mpsecu/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "space-pen",
+        "version": "4.3.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/space-pen/lib/space-pen.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "event-kit",
+        "version": "0.8.1",
+        "path": "node_modules/event-kit/lib/event-kit.js"
+      },
+      {
+        "name": "fs-plus",
+        "version": "2.4.0",
+        "path": "node_modules/fs-plus/lib/fs-plus.js"
+      },
+      {
+        "name": "async",
+        "version": "0.2.10",
+        "path": "node_modules/fs-plus/node_modules/async/lib/async.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.3.5",
+        "path": "node_modules/fs-plus/node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/fs-plus/node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      },
+      {
+        "name": "grim",
+        "version": "0.12.0",
+        "path": "node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "pigments",
+        "version": "3.0.4",
+        "path": "node_modules/pigments/lib/index.js"
+      },
+      {
+        "name": "css-color-function",
+        "version": "0.1.0",
+        "path": "node_modules/pigments/node_modules/css-color-function/lib/index.js"
+      },
+      {
+        "name": "balanced-match",
+        "version": "0.0.0",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/balanced-match/index.js"
+      },
+      {
+        "name": "color",
+        "version": "0.5.0",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/color/color.js"
+      },
+      {
+        "name": "color-convert",
+        "version": "0.2.1",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/index.js"
+      },
+      {
+        "name": "color-string",
+        "version": "0.1.3",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/color-string.js"
+      },
+      {
+        "name": "debug",
+        "version": "0.7.4",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/debug/lib/debug.js"
+      },
+      {
+        "name": "rgb",
+        "version": "0.0.1",
+        "path": "node_modules/pigments/node_modules/css-color-function/node_modules/rgb/index.js"
+      },
+      {
+        "name": "q",
+        "version": "1.0.1",
+        "path": "node_modules/pigments/node_modules/q/q.js"
+      },
+      {
+        "name": "prolix",
+        "version": "1.0.2",
+        "path": "node_modules/prolix/lib/prolix.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/match-view.coffee",
+        "lib/palette-item.coffee",
+        "lib/palette-provider.coffee",
+        "lib/palette.coffee",
+        "lib/project-colors-result-view.coffee",
+        "lib/project-colors-results-view.coffee",
+        "lib/project-palette-color-view.coffee",
+        "lib/project-palette-finder.coffee",
+        "lib/project-palette-view.coffee",
+        "node_modules/atom-space-pen-views/lib/main.coffee",
+        "node_modules/atom-space-pen-views/lib/scroll-view.coffee",
+        "node_modules/atom-space-pen-views/lib/select-list-view.coffee",
+        "node_modules/atom-space-pen-views/lib/text-editor-view.coffee"
+      ],
+      ".json": [
+        "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/package.json",
+        "node_modules/atom-space-pen-views/package.json",
+        "node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/emissary/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/package.json",
+        "node_modules/fs-plus/node_modules/async/component.json",
+        "node_modules/fs-plus/node_modules/async/package.json",
+        "node_modules/fs-plus/node_modules/mkdirp/package.json",
+        "node_modules/fs-plus/node_modules/rimraf/package.json",
+        "node_modules/fs-plus/package.json",
+        "node_modules/fuzzaldrin/package.json",
+        "node_modules/grim/package.json",
+        "node_modules/mixto/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/balanced-match/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/component.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/debug/package.json",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/rgb/package.json",
+        "node_modules/pigments/node_modules/css-color-function/package.json",
+        "node_modules/pigments/node_modules/q/package.json",
+        "node_modules/pigments/package.json",
+        "node_modules/prolix/package.json",
+        "node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/property-accessors/package.json",
+        "node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ],
+      ".js": [
+        "node_modules/atom-space-pen-views/node_modules/space-pen/lib/space-pen.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/vendor/jquery.js",
+        "node_modules/emissary/lib/behavior.js",
+        "node_modules/emissary/lib/emissary.js",
+        "node_modules/emissary/lib/emitter.js",
+        "node_modules/emissary/lib/helpers.js",
+        "node_modules/emissary/lib/signal.js",
+        "node_modules/emissary/lib/subscriber.js",
+        "node_modules/emissary/lib/subscription.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
+        "node_modules/fs-plus/lib/fs-plus.js",
+        "node_modules/fs-plus/node_modules/async/lib/async.js",
+        "node_modules/fs-plus/node_modules/mkdirp/examples/pow.js",
+        "node_modules/fs-plus/node_modules/mkdirp/index.js",
+        "node_modules/fs-plus/node_modules/rimraf/bin.js",
+        "node_modules/fs-plus/node_modules/rimraf/rimraf.js",
+        "node_modules/fuzzaldrin/lib/filter.js",
+        "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
+        "node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/fuzzaldrin/lib/scorer.js",
+        "node_modules/grim/lib/deprecation.js",
+        "node_modules/grim/lib/grim.js",
+        "node_modules/mixto/lib/mixin.js",
+        "node_modules/pigments/lib/color-conversions.js",
+        "node_modules/pigments/lib/color-expression.js",
+        "node_modules/pigments/lib/color-expressions.js",
+        "node_modules/pigments/lib/color-model.js",
+        "node_modules/pigments/lib/color-operation.js",
+        "node_modules/pigments/lib/color-operations.js",
+        "node_modules/pigments/lib/color-parsing.js",
+        "node_modules/pigments/lib/color-variables-parsing.js",
+        "node_modules/pigments/lib/color-variables.js",
+        "node_modules/pigments/lib/index.js",
+        "node_modules/pigments/lib/named-colors.js",
+        "node_modules/pigments/lib/pigments.js",
+        "node_modules/pigments/lib/regexes.js",
+        "node_modules/pigments/lib/utils.js",
+        "node_modules/pigments/node_modules/css-color-function/lib/adjusters.js",
+        "node_modules/pigments/node_modules/css-color-function/lib/convert.js",
+        "node_modules/pigments/node_modules/css-color-function/lib/index.js",
+        "node_modules/pigments/node_modules/css-color-function/lib/parse.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/balanced-match/example.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/balanced-match/index.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/Gruntfile.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/Jakefile.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/browser.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/color-0.4.4.min.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/color.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/kittydar.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/Jakefile.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/color-convert-0.2.0.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/color-convert-0.2.0.min.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/conversions.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-convert/index.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/Jakefile.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/color-string.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/debug/debug.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/debug/index.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/debug/lib/debug.js",
+        "node_modules/pigments/node_modules/css-color-function/node_modules/rgb/index.js",
+        "node_modules/pigments/node_modules/q/benchmark/compare-with-callbacks.js",
+        "node_modules/pigments/node_modules/q/benchmark/scenarios.js",
+        "node_modules/pigments/node_modules/q/q.js",
+        "node_modules/pigments/node_modules/q/queue.js",
+        "node_modules/prolix/lib/prolix.js",
+        "node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec/fixtures",
+          "spec"
+        ],
+        "dependencies": {
+          "property-accessors": "1.x",
+          "underscore-plus": "1.x",
+          "emissary": "1.x",
+          "event-kit": "^0",
+          "grim": "^0",
+          "mixto": "1.x",
+          "prolix": "1.x",
+          "pigments": ">= 3.0.4",
+          "fs-plus": "2.x",
+          "fuzzaldrin": "2.x",
+          "atom-space-pen-views": ">= 0.20.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/lib",
+          "node_modules/atom-space-pen-views"
+        ],
+        "dependencies": {
+          "fuzzaldrin": "^2.1.0",
+          "grim": "^0.12.0",
+          "space-pen": "^4.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/space-pen",
+          "node_modules/atom-space-pen-views/node_modules/space-pen/lib",
+          "node_modules/atom-space-pen-views/node_modules/space-pen/vendor"
+        ],
+        "dependencies": {
+          "grim": "^0.12.0",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/lib",
+          "node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/event-kit",
+          "node_modules/event-kit/lib"
+        ],
+        "dependencies": {
+          "grim": "^0.12.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/fs-plus/lib",
+          "node_modules/fs-plus"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mkdirp": "~0.3.5",
+          "rimraf": "~2.2.2",
+          "async": "~0.2.9"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/lib",
+          "node_modules/grim"
+        ],
+        "dependencies": {
+          "underscore-plus": "^1.0.0",
+          "emissary": "^1.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/pigments/lib",
+          "node_modules/pigments"
+        ],
+        "dependencies": {
+          "emissary": "1.x",
+          "underscore-plus": "1.x",
+          "property-accessors": "1.x",
+          "mixto": "1.x",
+          "q": "~1.0.1",
+          "css-color-function": "0.1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/pigments/node_modules/css-color-function/lib",
+          "node_modules/pigments/node_modules/css-color-function",
+          "node_modules/pigments/node_modules/css-color-function/test"
+        ],
+        "dependencies": {
+          "rgb": "0.0.1",
+          "debug": "~0.7.4",
+          "color": "~0.5.0",
+          "balanced-match": "0.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/pigments/node_modules/css-color-function/node_modules/color",
+          "node_modules/pigments/node_modules/css-color-function/node_modules/color/test"
+        ],
+        "dependencies": {
+          "color-convert": "0.2.x",
+          "color-string": "0.1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string",
+          "node_modules/pigments/node_modules/css-color-function/node_modules/color/node_modules/color-string/test"
+        ],
+        "dependencies": {
+          "color-convert": "0.2.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/prolix/lib",
+          "node_modules/prolix"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/property-accessors/lib",
+          "node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }
